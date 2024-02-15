@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: #b5b4b4;
+  flex-direction: column;
+}
+
+.container {
+  margin: 20px;
+}
+
+.nav-bar {
+  width: 100%;
+  position: sticky;
+  background-color: #797979;
+  box-shadow: #0000001f 0 1px 8px;
+  display: flex;
+  justify-content: space-between;
+  height: 65px;
+}
+
+.logo img {
+  width: 70px;
+  margin: 0 30px;
+}
+
+.user-container {
+  margin: 20px;
+}
