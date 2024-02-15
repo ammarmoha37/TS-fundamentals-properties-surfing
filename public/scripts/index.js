@@ -1,7 +1,6 @@
 "use strict";
-const returningUserDisplay = document.querySelector('#returning-user');
-const userNameDisplay = document.querySelector('#user');
-const reviewTotalDisplay = document.querySelector('#reviews');
+Object.defineProperty(exports, "__esModule", { value: true });
+const utils_1 = require("./utils");
 const myMainProperty = document.querySelector(".main-image");
 const reviewsButton = document.querySelector('button');
 const reviewsContainer = document.querySelector('.reviews');
@@ -9,47 +8,27 @@ const container = document.querySelector('.container');
 const you = {
     userName: 'Bobby',
     isReturning: true,
+    stayedAt: ['florida', 'new-times-squar', 'tokyo'],
 };
 const reviews = [
     {
         name: 'Tom',
         stars: 5,
-        loyalityUser: true,
+        loyaltyUser: true,
     },
     {
         name: 'Ally',
         stars: 3,
-        loyalityUser: false,
+        loyaltyUser: false,
     },
     {
         name: 'Omar',
         stars: 4,
-        loyalityUser: true,
+        loyaltyUser: true,
     }
 ];
-const displayUser = (isReturning, userName) => {
-    if (returningUserDisplay) {
-        if (isReturning) {
-            returningUserDisplay.innerHTML = 'back';
-        }
-    }
-    if (userNameDisplay) {
-        userNameDisplay.innerHTML = userName;
-    }
-};
-displayUser(you.isReturning, you.userName);
-const showTotalReviews = (value, reviewer, loyality) => {
-    const showStar = loyality ? '🌟' : '';
-    reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar;
-};
-const multipuleReviews = (value) => {
-    if (value > 1 || value == 0) {
-        return 's';
-    }
-    else
-        return '';
-};
-showTotalReviews(reviews[0].stars, reviews[0].name, reviews[0].loyalityUser);
+(0, utils_1.showTotalReviews)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+(0, utils_1.displayUser)(you.isReturning, you.userName);
 class mainProperty {
     constructor(src, title, reviews) {
         this.src = src;
@@ -65,12 +44,12 @@ let myProperty = new mainProperty('../public/imgs/main-property.jpeg', 'Texas pr
 const image = document.createElement('img');
 image.setAttribute('src', myProperty.src);
 image.setAttribute('class', 'main-property');
-myMainProperty === null || myMainProperty === void 0 ? void 0 : myMainProperty.appendChild(image);
+myMainProperty.appendChild(image);
 let count = 0;
 const displayReviews = (reviews) => {
     if (!count) {
         count++;
-        const topTwo = getFirstTwoReviews(reviews);
+        const topTwo = (0, utils_1.getFirstTwoReviews)(reviews);
         for (let i = 0; i < topTwo.length; i++) {
             const reviewCard = document.createElement('div');
             reviewCard.classList.add('review-card');
@@ -80,8 +59,4 @@ const displayReviews = (reviews) => {
         container.removeChild(reviewsButton);
     }
 };
-reviewsButton === null || reviewsButton === void 0 ? void 0 : reviewsButton.addEventListener('click', () => displayReviews(reviews));
-const getFirstTwoReviews = (reviews) => {
-    const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
-    return sortedReviews.slice(0, 2);
-};
+reviewsButton.addEventListener('click', () => displayReviews(reviews));

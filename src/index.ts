@@ -1,6 +1,6 @@
-const returningUserDisplay  = document.querySelector('#returning-user')!;
-const userNameDisplay = document.querySelector('#user')!;
-const reviewTotalDisplay = document.querySelector('#reviews')!;
+import {showTotalReviews, displayUser, getFirstTwoReviews} from './utils'
+
+
 const myMainProperty = document.querySelector(".main-image")!;
 const reviewsButton = document.querySelector('button')!;
 const reviewsContainer = document.querySelector('.reviews')!;
@@ -10,58 +10,38 @@ const container = document.querySelector('.container')!;
 const you : {
   userName: string;
   isReturning: boolean;
+  stayedAt : string[];
 } = {
   userName: 'Bobby',
   isReturning: true,
-}
+  stayedAt : ['florida', 'new-times-squar', 'tokyo'],
+};
 
 const reviews: {
   name: string;
   stars: number;
-  loyalityUser: boolean;
+  loyaltyUser: boolean;
 }[] = [
   {
     name: 'Tom',
     stars: 5,
-    loyalityUser: true,
+    loyaltyUser: true,
   },
   {
     name: 'Ally',
     stars: 3,
-    loyalityUser: false,
+    loyaltyUser: false,
   },
   {
     name: 'Omar',
     stars: 4,
-    loyalityUser: true,
+    loyaltyUser: true,
   }
 ]
 
-const displayUser = (isReturning : boolean, userName : string) => {
-  if (returningUserDisplay) {
-    if (isReturning) {
-      returningUserDisplay.innerHTML = 'back';
-    }
-  }
-  if (userNameDisplay) {
-    userNameDisplay.innerHTML = userName;
-  }
-} 
+showTotalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
 displayUser(you.isReturning, you.userName);
-
-const showTotalReviews = (value: number, reviewer: string, loyality: boolean) => {
-  const showStar = loyality ? '🌟' : '';
-  reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar; 
-}
-
-const multipuleReviews = (value: number) => {
-  if (value > 1 || value == 0) {
-    return 's';
-  } else return '';
-}
-
-showTotalReviews(reviews[0].stars, reviews[0].name, reviews[0].loyalityUser);
 
 class mainProperty {
   src: string;
@@ -82,12 +62,12 @@ let myProperty = new mainProperty(
     stars: 4,
     loyalityUser: true,
   }]
-)
+);
 
 const image = document.createElement('img');
 image.setAttribute('src', myProperty.src);
 image.setAttribute('class', 'main-property');
-myMainProperty?.appendChild(image);
+myMainProperty.appendChild(image);
 
 let count = 0
 const displayReviews = (reviews : {name: string; stars: number; loyalityUser: boolean;}[]) => {
@@ -104,9 +84,5 @@ const displayReviews = (reviews : {name: string; stars: number; loyalityUser: bo
   }
 }
 
-reviewsButton?.addEventListener('click', () => displayReviews(reviews));
+reviewsButton.addEventListener('click', () => displayReviews(reviews));
 
-const getFirstTwoReviews = (reviews : {name: string; stars: number; loyalityUser: boolean;}[]) : {name: string; stars: number; loyalityUser: boolean}[] => {
-  const sortedReviews = reviews.sort((a , b) => b.stars - a.stars);
-  return sortedReviews.slice(0,2);
-}
