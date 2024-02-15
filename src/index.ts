@@ -1,6 +1,11 @@
 const returningUserDisplay  = document.querySelector('#returning-user')!;
 const userNameDisplay = document.querySelector('#user')!;
 const reviewTotalDisplay = document.querySelector('#reviews')!;
+const myMainProperty = document.querySelector(".main-image")!;
+const reviewsButton = document.querySelector('button')!;
+const reviewsContainer = document.querySelector('.reviews')!;
+const container = document.querySelector('.container')!;
+
 
 const you : {
   userName: string;
@@ -79,8 +84,29 @@ let myProperty = new mainProperty(
   }]
 )
 
-const myMainProperty = document.querySelector(".main-image");
 const image = document.createElement('img');
 image.setAttribute('src', myProperty.src);
 image.setAttribute('class', 'main-property');
 myMainProperty?.appendChild(image);
+
+let count = 0
+const displayReviews = (reviews : {name: string; stars: number; loyalityUser: boolean;}[]) => {
+  if (!count) {
+    count++;
+    const topTwo = getFirstTwoReviews(reviews);
+    for (let i = 0; i < topTwo.length; i++) {
+      const reviewCard = document.createElement('div');
+      reviewCard.classList.add('review-card');
+      reviewCard.innerHTML = topTwo[i].stars + ' stars from' + topTwo[i].name;
+      reviewsContainer.appendChild(reviewCard);
+    }
+    container.removeChild(reviewsButton);
+  }
+}
+
+reviewsButton?.addEventListener('click', () => displayReviews(reviews));
+
+const getFirstTwoReviews = (reviews : {name: string; stars: number; loyalityUser: boolean;}[]) : {name: string; stars: number; loyalityUser: boolean}[] => {
+  const sortedReviews = reviews.sort((a , b) => b.stars - a.stars);
+  return sortedReviews.slice(0,2);
+}
