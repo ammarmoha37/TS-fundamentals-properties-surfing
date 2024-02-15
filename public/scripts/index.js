@@ -23,7 +23,7 @@ const reviews = [
         loyalityUser: true,
     }
 ];
-function displayUser(isReturning, userName) {
+const displayUser = (isReturning, userName) => {
     if (returningUserDisplay) {
         if (isReturning) {
             returningUserDisplay.innerHTML = 'back';
@@ -32,10 +32,17 @@ function displayUser(isReturning, userName) {
     if (userNameDisplay) {
         userNameDisplay.innerHTML = userName;
     }
-}
+};
 displayUser(you.isReturning, you.userName);
 const showTotalReviews = (value, reviewer, loyality) => {
     const showStar = loyality ? '🌟' : '';
-    reviewTotalDisplay.innerHTML = value + ' reviews' + '| last review by ' + reviewer + ' ' + showStar;
+    reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar;
+};
+const multipuleReviews = (value) => {
+    if (value > 1 || value == 0) {
+        return 's';
+    }
+    else
+        return '';
 };
 showTotalReviews(reviews[0].stars, reviews[0].name, reviews[0].loyalityUser);
