@@ -46,3 +46,20 @@ const multipuleReviews = (value) => {
         return '';
 };
 showTotalReviews(reviews[0].stars, reviews[0].name, reviews[0].loyalityUser);
+class mainProperty {
+    constructor(src, title, reviews) {
+        this.src = src;
+        this.title = title;
+        this.reviews = reviews;
+    }
+}
+let myProperty = new mainProperty('../public/imgs/main-property.jpeg', 'Texas property', [{
+        name: 'Mike',
+        stars: 4,
+        loyalityUser: true,
+    }]);
+const myMainProperty = document.querySelector(".main-image");
+const image = document.createElement('img');
+image.setAttribute('src', myProperty.src);
+image.setAttribute('class', 'main-property');
+myMainProperty === null || myMainProperty === void 0 ? void 0 : myMainProperty.appendChild(image);
