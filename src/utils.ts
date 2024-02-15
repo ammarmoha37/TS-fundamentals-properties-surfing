@@ -2,8 +2,8 @@ const returningUserDisplay  = document.querySelector('#returning-user')!;
 const userNameDisplay = document.querySelector('#user')!;
 const reviewTotalDisplay = document.querySelector('#reviews')!;
 
-export const showTotalReviews = (value: number, reviewer: string, loyality: boolean) => {
-  const showStar = loyality ? '🌟' : '';
+export const showTotalReviews = (value: number, reviewer: string, loyalty: boolean) => {
+  const showStar = loyalty ? '🌟' : '';
   reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar; 
 }
 
@@ -24,7 +24,7 @@ const multipuleReviews = (value: number) => {
   } else return '';
 }
 
-export const getFirstTwoReviews = (reviews : {name: string; stars: number; loyalityUser: boolean;}[]) : {name: string; stars: number; loyalityUser: boolean}[] => {
+export const getFirstTwoReviews = (reviews : {name: string; stars: number; loyaltyUser: boolean;}[]) : {name: string; stars: number; loyaltyUser: boolean}[] => {
   const sortedReviews = reviews.sort((a , b) => b.stars - a.stars);
   return sortedReviews.slice(0,2);
 }

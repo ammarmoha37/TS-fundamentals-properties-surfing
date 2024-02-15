@@ -39,7 +39,7 @@ class mainProperty {
 let myProperty = new mainProperty('../public/imgs/main-property.jpeg', 'Texas property', [{
         name: 'Mike',
         stars: 4,
-        loyalityUser: true,
+        loyaltyUser: true,
     }]);
 const image = document.createElement('img');
 image.setAttribute('src', myProperty.src);

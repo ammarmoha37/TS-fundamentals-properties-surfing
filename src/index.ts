@@ -1,4 +1,4 @@
-import {showTotalReviews, displayUser, getFirstTwoReviews} from './utils'
+import {showTotalReviews, displayUser, getFirstTwoReviews} from './utils';
 
 
 const myMainProperty = document.querySelector(".main-image")!;
@@ -17,7 +17,7 @@ const you : {
   stayedAt : ['florida', 'new-times-squar', 'tokyo'],
 };
 
-const reviews: {
+const reviews : {
   name: string;
   stars: number;
   loyaltyUser: boolean;
@@ -46,8 +46,8 @@ displayUser(you.isReturning, you.userName);
 class mainProperty {
   src: string;
   title: string;
-  reviews: {name: string; stars: number; loyalityUser: boolean;}[];
-  constructor(src: string, title: string, reviews:{name: string; stars: number; loyalityUser: boolean;}[]) {
+  reviews: {name: string; stars: number; loyaltyUser: boolean;}[];
+  constructor(src: string, title: string, reviews:{name: string; stars: number; loyaltyUser: boolean;}[]) {
     this.src = src;
     this.title = title;
     this.reviews = reviews;
@@ -60,9 +60,11 @@ let myProperty = new mainProperty(
   [{
     name: 'Mike',
     stars: 4,
-    loyalityUser: true,
+    loyaltyUser: true,
   }]
 );
+
+
 
 const image = document.createElement('img');
 image.setAttribute('src', myProperty.src);
@@ -70,7 +72,7 @@ image.setAttribute('class', 'main-property');
 myMainProperty.appendChild(image);
 
 let count = 0
-const displayReviews = (reviews : {name: string; stars: number; loyalityUser: boolean;}[]) => {
+const displayReviews = (reviews : {name: string; stars: number; loyaltyUser: boolean;}[]) => {
   if (!count) {
     count++;
     const topTwo = getFirstTwoReviews(reviews);

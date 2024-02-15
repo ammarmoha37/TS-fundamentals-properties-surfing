@@ -4,8 +4,8 @@ exports.getFirstTwoReviews = exports.displayUser = exports.showTotalReviews = vo
 const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
-const showTotalReviews = (value, reviewer, loyality) => {
-    const showStar = loyality ? '🌟' : '';
+const showTotalReviews = (value, reviewer, loyalty) => {
+    const showStar = loyalty ? '🌟' : '';
     reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar;
 };
 exports.showTotalReviews = showTotalReviews;
