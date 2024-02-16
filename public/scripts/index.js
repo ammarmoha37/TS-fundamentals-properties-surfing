@@ -1,4 +1,4 @@
-import { showTotalReviews, displayUser, getFirstTwoReviews } from './utils.js';
+import { showTotalReviews, displayUser, getFirstTwoReviews, showPropertyDetails } from './utils.js';
 import { LoyaltyUser, Permissions } from './enum.js';
 const myMainProperty = document.querySelector(".main-image");
 const reviewsButton = document.querySelector('button');
@@ -6,6 +6,8 @@ const reviewsContainer = document.querySelector('.reviews');
 const container = document.querySelector('.container');
 const propertiesContainer = document.querySelector('.properties');
 const footer = document.querySelector('.footer');
+let isLoggedIn;
+isLoggedIn = true;
 const you = {
     userName: 'Bobby',
     isReturning: true,
@@ -127,6 +129,8 @@ if (propertiesContainer) {
         image.setAttribute('src', properties[i].image);
         cardProperty.appendChild(image);
         propertiesContainer.appendChild(cardProperty);
+        // showPropertyDetails(you.permissions, cardProperty, properties[i].price);
+        showPropertyDetails(isLoggedIn, cardProperty, properties[i].price);
     }
 }
 let currentLocation = [

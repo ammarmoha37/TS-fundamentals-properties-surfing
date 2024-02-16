@@ -27,3 +27,10 @@ export const getFirstTwoReviews = (reviews) => {
     const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
     return sortedReviews.slice(0, 2);
 };
+export const showPropertyDetails = (value, element, price) => {
+    if (value) {
+        const priceDisplay = document.createElement('div');
+        priceDisplay.innerHTML = price.toString() + '/night';
+        element.appendChild(priceDisplay);
+    }
+};

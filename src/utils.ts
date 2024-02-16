@@ -1,4 +1,4 @@
-import { LoyaltyUser } from "./enum.js";
+import { LoyaltyUser, Permissions } from "./enum.js";
 
 const returningUserDisplay  = document.querySelector('#returning-user')!;
 const userNameDisplay = document.querySelector('#user')!;
@@ -29,4 +29,12 @@ const multipuleReviews = (value: number) => {
 export const getFirstTwoReviews = (reviews : {name: string; stars: number; loyaltyUser: LoyaltyUser}[]) : {name: string; stars: number; loyaltyUser: LoyaltyUser}[] => {
   const sortedReviews = reviews.sort((a , b) => b.stars - a.stars);
   return sortedReviews.slice(0,2);
+}
+
+export const showPropertyDetails = (value: boolean | Permissions, element: HTMLDivElement, price: number) => {
+  if(value) {
+    const priceDisplay = document.createElement('div');
+    priceDisplay.innerHTML = price.toString() + '/night';
+    element.appendChild(priceDisplay);
+  }
 }
