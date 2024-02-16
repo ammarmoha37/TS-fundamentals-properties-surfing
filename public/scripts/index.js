@@ -1,4 +1,5 @@
 import { showTotalReviews, displayUser, getFirstTwoReviews } from './utils.js';
+import { LoyaltyUser, Permissions } from './enum.js';
 const myMainProperty = document.querySelector(".main-image");
 const reviewsButton = document.querySelector('button');
 const reviewsContainer = document.querySelector('.reviews');
@@ -8,23 +9,25 @@ const footer = document.querySelector('.footer');
 const you = {
     userName: 'Bobby',
     isReturning: true,
+    permissions: Permissions.ADMIN,
+    age: 22,
     stayedAt: ['florida', 'new-times-squar', 'tokyo'],
 };
 const reviews = [
     {
         name: 'Tom',
         stars: 5,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.GOLD_USER,
     },
     {
         name: 'Ally',
         stars: 3,
-        loyaltyUser: false,
+        loyaltyUser: LoyaltyUser.BRONZE_USER,
     },
     {
         name: 'Omar',
         stars: 4,
-        loyaltyUser: true,
+        loyaltyUser: LoyaltyUser.SILVER_USER,
     }
 ];
 showTotalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);

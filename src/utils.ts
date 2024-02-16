@@ -1,9 +1,11 @@
+import { LoyaltyUser } from "./enum.js";
+
 const returningUserDisplay  = document.querySelector('#returning-user')!;
 const userNameDisplay = document.querySelector('#user')!;
 const reviewTotalDisplay = document.querySelector('#reviews')!;
 
-export const showTotalReviews = (value: number, reviewer: string, loyalty: boolean) => {
-  const showStar = loyalty ? '🌟' : '';
+export const showTotalReviews = (value: number, reviewer: string, loyalty: LoyaltyUser) => {
+  const showStar = LoyaltyUser.GOLD_USER ? '🌟' : '';
   reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar; 
 }
 
@@ -24,7 +26,7 @@ const multipuleReviews = (value: number) => {
   } else return '';
 }
 
-export const getFirstTwoReviews = (reviews : {name: string; stars: number; loyaltyUser: boolean;}[]) : {name: string; stars: number; loyaltyUser: boolean}[] => {
+export const getFirstTwoReviews = (reviews : {name: string; stars: number; loyaltyUser: LoyaltyUser}[]) : {name: string; stars: number; loyaltyUser: LoyaltyUser}[] => {
   const sortedReviews = reviews.sort((a , b) => b.stars - a.stars);
   return sortedReviews.slice(0,2);
 }

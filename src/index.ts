@@ -1,5 +1,5 @@
 import {showTotalReviews, displayUser, getFirstTwoReviews} from './utils.js';
-
+import { LoyaltyUser, Permissions } from './enum.js';
 
 const myMainProperty = document.querySelector(".main-image")!;
 const reviewsButton = document.querySelector('button')!;
@@ -11,32 +11,36 @@ const footer = document.querySelector('.footer')!;
 const you : {
   userName: string;
   isReturning: boolean;
-  stayedAt : string[];
+  permissions: Permissions;
+  age: number;
+  stayedAt: string[];
 } = {
   userName: 'Bobby',
   isReturning: true,
+  permissions: Permissions.ADMIN,
+  age: 22,
   stayedAt : ['florida', 'new-times-squar', 'tokyo'],
 };
 
 const reviews : {
   name: string;
   stars: number;
-  loyaltyUser: boolean;
+  loyaltyUser: LoyaltyUser;
 }[] = [
   {
     name: 'Tom',
     stars: 5,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.GOLD_USER,
   },
   {
     name: 'Ally',
     stars: 3,
-    loyaltyUser: false,
+    loyaltyUser: LoyaltyUser.BRONZE_USER,
   },
   {
     name: 'Omar',
     stars: 4,
-    loyaltyUser: true,
+    loyaltyUser: LoyaltyUser.SILVER_USER,
   }
 ]
 
@@ -73,7 +77,7 @@ image.setAttribute('class', 'main-property');
 myMainProperty.appendChild(image);
 
 let count = 0
-const displayReviews = (reviews : {name: string; stars: number; loyaltyUser: boolean;}[]) => {
+const displayReviews = (reviews : {name: string; stars: number; loyaltyUser: LoyaltyUser;}[]) => {
   if (!count) {
     count++;
     const topTwo = getFirstTwoReviews(reviews);

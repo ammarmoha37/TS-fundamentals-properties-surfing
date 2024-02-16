@@ -1,8 +1,9 @@
+import { LoyaltyUser } from "./enum.js";
 const returningUserDisplay = document.querySelector('#returning-user');
 const userNameDisplay = document.querySelector('#user');
 const reviewTotalDisplay = document.querySelector('#reviews');
 export const showTotalReviews = (value, reviewer, loyalty) => {
-    const showStar = loyalty ? '🌟' : '';
+    const showStar = LoyaltyUser.GOLD_USER ? '🌟' : '';
     reviewTotalDisplay.innerHTML = value + ' review' + multipuleReviews(value) + '| last review by ' + reviewer + ' ' + showStar;
 };
 export const displayUser = (isReturning, userName) => {
