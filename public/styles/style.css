@@ -77,15 +77,19 @@ button:hover {
 }
 
 .card-property {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 150px;
-    margin: 5px;
-    border-radius: 20px;
-    padding: 10px;
-    box-shadow: #0000001f 0 1px 8px;
+  margin: 5px;
+  border-radius: 20px;
+  padding: 10px;
+  box-shadow: #0000001f 0 1px 8px;
 }
 
 .card-property img {
   width: 100%;
+  margin: 5px;
 }
 
 .footer {

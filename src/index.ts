@@ -1,6 +1,7 @@
 import {showTotalReviews, displayUser, getFirstTwoReviews, showPropertyDetails} from './utils.js';
+import { Review, Properties} from './interfaces.js'
 import { LoyaltyUser, Permissions } from './enum.js';
-import { price, country } from './type.js';
+import { Price, Country } from './type.js';
 
 const myMainProperty = document.querySelector(".main-image")!;
 const reviewsButton = document.querySelector('button')!;
@@ -26,11 +27,7 @@ const you : {
   stayedAt : ['florida', 'new-times-squar', 'tokyo'],
 };
 
-const reviews : {
-  name: string;
-  stars: number;
-  loyaltyUser: LoyaltyUser;
-}[] = [
+const reviews : Review[] = [
   {
     name: 'Tom',
     stars: 5,
@@ -101,19 +98,7 @@ const displayReviews = (reviews : {
 
 reviewsButton.addEventListener('click', () => displayReviews(reviews));
 
-const properties : {
-  image: string;
-  title: string;
-  price: price;
-  location: {
-    firstLine: string;
-    city: string;
-    code: number | string;
-    country: country;
-  };
-  contact: [number, string];
-  isAvailable: boolean;
-}[] = [
+const properties : Properties[] = [
   {
     image: '../public/imgs/colombia-property.jpg',
     title: 'Colombian Shack',
