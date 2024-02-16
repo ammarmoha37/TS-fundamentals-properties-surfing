@@ -6,7 +6,7 @@ const reviewsButton = document.querySelector('button')!;
 const reviewsContainer = document.querySelector('.reviews')!;
 const container = document.querySelector('.container')!;
 const propertiesContainer = document.querySelector('.properties')!;
-
+const footer = document.querySelector('.footer')!;
 
 const you : {
   userName: string;
@@ -168,3 +168,9 @@ if (propertiesContainer) {
     propertiesContainer.appendChild(cardProperty);
   }
 }
+
+let currentLocation: [string, string, number] = [
+  'Turkey', '15:42', 12
+];
+
+footer.innerHTML = currentLocation[0] + ' ' + currentLocation[1] + ' ' + currentLocation[2] + '°';
