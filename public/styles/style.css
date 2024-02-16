@@ -5,6 +5,7 @@ body {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #4c4c4c;
   flex-direction: column;
+  user-select: none;
 }
 
 .container {
@@ -59,4 +60,29 @@ button:hover {
 
 .review-card {
   padding: 15px;
+}
+
+.break {
+  height: 1px;
+  width: 90%;
+  background-color: #4c4c4c;
+  margin: 15px 0 10px;
+}
+
+.properties {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card-property {
+  width: 150px;
+    margin: 5px;
+    border-radius: 20px;
+    padding: 10px;
+    box-shadow: #0000001f 0 1px 8px;
+}
+
+.card-property img {
+  width: 100%;
 }
