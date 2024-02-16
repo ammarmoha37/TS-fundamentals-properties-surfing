@@ -3,6 +3,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 100%;
   color: #4c4c4c;
   flex-direction: column;
   user-select: none;
@@ -31,11 +32,11 @@ body {
 }
 
 .user-container {
-  margin: 20px;
+  margin: auto 10px;
 }
 
 .container img {
-  width: 500px;
+  width: 100%;
 }
 
 .reviews {
