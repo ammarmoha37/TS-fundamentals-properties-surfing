@@ -69,7 +69,7 @@ const properties = [
     {
         image: '../public/imgs/colombia-property.jpg',
         title: 'Colombian Shack',
-        price: 45,
+        price: 30,
         location: {
             firstLine: 'shack 37',
             city: 'Bogota',
@@ -82,7 +82,7 @@ const properties = [
     {
         image: '../public/imgs/poland-property.jpg',
         title: 'Polish Cottage',
-        price: 34,
+        price: 25,
         location: {
             firstLine: 'no 23',
             city: 'Gdansk',
@@ -95,7 +95,7 @@ const properties = [
     {
         image: '../public/imgs/london-property.jpg',
         title: 'London Flat',
-        price: 23,
+        price: 35,
         location: {
             firstLine: 'flat 15',
             city: 'London',
@@ -108,7 +108,7 @@ const properties = [
     {
         image: '../public/imgs/malaysian-hotel.jpeg',
         title: 'Malia Hotel',
-        price: 35,
+        price: 20,
         location: {
             firstLine: 'Room 4',
             city: 'Malia',

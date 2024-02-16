@@ -1,5 +1,6 @@
 import {showTotalReviews, displayUser, getFirstTwoReviews, showPropertyDetails} from './utils.js';
 import { LoyaltyUser, Permissions } from './enum.js';
+import { price, country } from './type.js';
 
 const myMainProperty = document.querySelector(".main-image")!;
 const reviewsButton = document.querySelector('button')!;
@@ -80,7 +81,11 @@ image.setAttribute('class', 'main-property');
 myMainProperty.appendChild(image);
 
 let count = 0
-const displayReviews = (reviews : {name: string; stars: number; loyaltyUser: LoyaltyUser;}[]) => {
+const displayReviews = (reviews : {
+  name: string;
+  stars: number;
+  loyaltyUser: LoyaltyUser;
+}[]) => {
   if (!count) {
     count++;
     const topTwo = getFirstTwoReviews(reviews);
@@ -99,12 +104,12 @@ reviewsButton.addEventListener('click', () => displayReviews(reviews));
 const properties : {
   image: string;
   title: string;
-  price: number;
+  price: price;
   location: {
     firstLine: string;
     city: string;
     code: number | string;
-    country: string;
+    country: country;
   };
   contact: [number, string];
   isAvailable: boolean;
@@ -112,7 +117,7 @@ const properties : {
   {
     image: '../public/imgs/colombia-property.jpg',
     title: 'Colombian Shack',
-    price: 45,
+    price: 30,
     location: {
         firstLine: 'shack 37',
         city: 'Bogota',
@@ -125,7 +130,7 @@ const properties : {
   {
     image: '../public/imgs/poland-property.jpg',
     title: 'Polish Cottage',
-    price: 34,
+    price: 25,
     location: {
         firstLine: 'no 23',
         city: 'Gdansk',
@@ -138,7 +143,7 @@ const properties : {
   {
     image: '../public/imgs/london-property.jpg',
     title: 'London Flat',
-    price: 23,
+    price: 35,
     location: {
         firstLine: 'flat 15',
         city: 'London',
@@ -151,7 +156,7 @@ const properties : {
   {
     image: '../public/imgs/malaysian-hotel.jpeg',
     title: 'Malia Hotel',
-    price: 35,
+    price: 20,
     location: {
         firstLine: 'Room 4',
         city: 'Malia',
