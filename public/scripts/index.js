@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const utils_1 = require("./utils");
+import { showTotalReviews, displayUser, getFirstTwoReviews } from './utils.js';
 const myMainProperty = document.querySelector(".main-image");
 const reviewsButton = document.querySelector('button');
 const reviewsContainer = document.querySelector('.reviews');
@@ -27,8 +25,8 @@ const reviews = [
         loyaltyUser: true,
     }
 ];
-(0, utils_1.showTotalReviews)(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-(0, utils_1.displayUser)(you.isReturning, you.userName);
+showTotalReviews(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
+displayUser(you.isReturning, you.userName);
 class mainProperty {
     constructor(src, title, reviews) {
         this.src = src;
@@ -49,7 +47,7 @@ let count = 0;
 const displayReviews = (reviews) => {
     if (!count) {
         count++;
-        const topTwo = (0, utils_1.getFirstTwoReviews)(reviews);
+        const topTwo = getFirstTwoReviews(reviews);
         for (let i = 0; i < topTwo.length; i++) {
             const reviewCard = document.createElement('div');
             reviewCard.classList.add('review-card');

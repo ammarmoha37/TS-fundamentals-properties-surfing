@@ -1,4 +1,4 @@
-import {showTotalReviews, displayUser, getFirstTwoReviews} from './utils';
+import {showTotalReviews, displayUser, getFirstTwoReviews} from './utils.js';
 
 
 const myMainProperty = document.querySelector(".main-image")!;
