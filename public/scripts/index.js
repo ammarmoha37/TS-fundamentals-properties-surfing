@@ -58,7 +58,7 @@ const displayReviews = (reviews) => {
         for (let i = 0; i < topTwo.length; i++) {
             const reviewCard = document.createElement('div');
             reviewCard.classList.add('review-card');
-            reviewCard.innerHTML = topTwo[i].stars + ' stars from' + topTwo[i].name;
+            reviewCard.innerHTML = topTwo[i].stars + ' stars from ' + topTwo[i].name;
             reviewsContainer.appendChild(reviewCard);
         }
         container.removeChild(reviewsButton);
